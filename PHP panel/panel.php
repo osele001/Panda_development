@@ -12,13 +12,24 @@
 		<a href="panel.php"><li class="selected">My orders</li></a>
 		<a href="panel.php"><li>Statistics</li></a>
 		<a href="panel.php"><li>Products</li></a>
+		<a href="panel.php?action=exit"><li><img src="img/exit.png" style="margin-right:10px;"/>Exit</li></a>
 	</ul>
-</div>
+	
+</div>	
 
 
 <?php
 	
 	session_start();
+	
+	if(isset($_GET['action']))
+	{
+		if($_GET['action'] == "exit")
+		{
+				session_destroy();
+			 header("Location: index.html");
+		}
+	}
 	
 	if((isset($_SESSION["email"])))
 	{
@@ -66,10 +77,16 @@
 		
 		}
 		else
-		echo("Sorry, login or password is wrong");
+		{
+			echo("<script>var body=document.getElementsByTagName('body')[0]; while(body.firstChild) body.removeChild(body.firstChild);</script>");
+			echo("Sorry, login or password is wrong");
+		}
 	}
 	else
+	{
+		echo("<script>var body=document.getElementsByTagName('body')[0]; while(body.firstChild) body.removeChild(body.firstChild);</script>");
 		echo("Sorry, you need to re-login");
+	}
 	
 ?>
 
