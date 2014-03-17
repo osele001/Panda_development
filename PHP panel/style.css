@@ -12,6 +12,7 @@ body {
 	margin-bottom:0px;
 	height:100%;
 	width:100%;
+	background-color:#efefef;
 	}
 A { 
     text-decoration: none;
@@ -22,6 +23,16 @@ A:link {TEXT-DECORATION:none;font-weight:normal;}
 A:visited {TEXT-DECORATION:none;font-weight:normal;}
 A:active {TEXT-DECORATION:none;font-weight:normal;}
 A:hover {TEXT-DECORATION:none;} 
+
+h2 {
+	margin-top:50px;
+	text-align:center;
+}
+
+h1 {
+	margin-top:30px; 
+	text-align:center;
+}
 
 a img {
      border: none; 
@@ -71,7 +82,28 @@ a img {
 
 
 
+/* FORMS STYLE */
 
+#form_container {
+	padding:20px;
+	margin: 20px auto;
+	border: 1px solid #cdcdcd;
+	width: 800px;
+	-webkit-birder-radius: 6px;
+	-moz-border-radius: 6px;
+	 border-radius: 6px; 
+}
+
+#form_container h2 {
+	margin:0;
+}
+	 
+	 
+#form_container tbody td {
+	padding: 20px 10px 20px 10px;
+}
+
+/* FORMS STYLE */
 
 /* ALERT BOX*/
 #alert_box {
