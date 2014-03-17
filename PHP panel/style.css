@@ -45,7 +45,7 @@ a img {
 #upper_menu ul li{
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-style:bold;
-	font-size:18px;
+	font-size:19px;
 	list-style-type:none;
 	float:center;
 	display: inline;
@@ -68,32 +68,6 @@ a img {
 
 
 
-.submit {
-	cursor: pointer;
-	border: 1px solid #cecece;
-	background: #f6f6f6;
-	box-shadow: inset 0px 20px 20px #ffffff;
-	border-radius: 8px;
-	padding: 8px 14px;
-	width: 120px;
-}
-.submit:hover {
-	box-shadow: inset 0px -20px 20px #ffffff;
-}
-.submit:active {
-	margin-top: 1px;
-	margin-bottom: -1px;
-	zoom: 1;
-}
-
-
-
-
-
-
-
-
-
 
 
 
@@ -108,3 +82,70 @@ a img {
 	background:#ccc;
 }
 /* ALERT BOX*/
+
+
+/* TABLE STYLE */
+
+.features-table
+{
+  width: 100%;
+  margin: 0 auto;
+  border-collapse: separate;
+  border-spacing: 0;
+  text-shadow: 0 1px 0 #fff;
+  color: #2a2a2a;
+  background: #fafafa;
+  background-image: -moz-linear-gradient(top, #fff, #eaeaea, #fff); /* Firefox 3.6 */
+  background-image: -webkit-gradient(linear,center bottom,center top,from(#fff),color-stop(0.5, #eaeaea),to(#fff));
+  margin-bottom:20px;
+  border-top: 1px solid black;
+}
+.features-table td
+{
+  height: 70px;
+  padding: 15px 10px;
+  border-bottom: 1px solid #cdcdcd;
+  box-shadow: 0 1px 0 white;
+  -moz-box-shadow: 0 1px 0 white;
+  -webkit-box-shadow: 0 1px 0 white;
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+  border-right: 1px solid black;
+}
+.features-table tbody td
+{
+  text-align: center;
+}
+.features-table td.grey
+{
+  background: #efefef;
+  background: rgba(144,144,144,0.15);
+  border-right: none;
+  word-wrap: break-word;
+}
+.features-table td.green
+{
+  background: #e7f3d4;
+  background: rgba(184,243,85,0.3);
+  border-left: 1px solid black;
+  border-right: none;
+}
+.features-table td:nowrap
+{
+  white-space: nowrap;
+}
+.features-table thead td
+{
+  font-size: 120%;
+  font-weight: bold;
+  border-top: 1px solid #eaeaea;
+}
+.features-table tfoot td
+{
+  font-size: 120%;
+  font-weight: bold;
+  border-bottom: 1px solid #dadada;
+}
+
+/* TABLE STYLE */

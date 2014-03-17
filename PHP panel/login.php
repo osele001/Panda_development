@@ -95,7 +95,7 @@ if ($_POST)
 				}
 			}
 			else
-				echo("Wrong password my little friend");
+				echo("Wrong password. <a href='index.html'>Try again</a>.");
 			
 		}
 	}
