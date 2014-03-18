@@ -46,7 +46,7 @@ if ($_POST)
 	if($password == "")
 	{
 	$error = true;
-	$errortext .= "<li>lease, fill out the field Password</li>";
+	$errortext .= "<li>Please, fill out the field Password</li>";
 	} 
 	
 	$errortext .= "</ul></b>";

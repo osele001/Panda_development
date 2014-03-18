@@ -1,11 +1,31 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="style.css" type="text/css" />       
+<link rel="stylesheet" href="style.css" type="text/css" /> 
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>      
 <title>Panda development project</title>
+<script>
+var staymovevar=0;
+function statpopupfunc(){
+$("#alert_box").hide();
+$("#alert_box").slideDown("slow");
+setTimeout(function()
+    {
+		if(staymovevar==0)
+			$("#alert_box").slideUp("slow");
+
+    }, 5000);
+}
+
+function staymove(){
+if(staymovevar==0) { staymovevar++;}
+else {
+$("#alert_box").slideUp("slow");}
+}
+</script>
 </head>
   
-<body>
+<body onload="statpopupfunc()">
 
 
 <?php
@@ -19,7 +39,7 @@ $id = -1;
 
 <div id="upper_menu"> 
 	<ul>
-		<a href="panel.php?action=orders"><li <?php if(isset($_GET['action'])) { if($_GET['action'] == "orders") { echo("class='selected'"); $action="orders"; }} else { echo("class='selected'"); $action="orders"; }?>>My orders</li></a>
+		<a href="panel.php?action=orders"><li <?php if(isset($_GET['action'])) { if($_GET['action'] == "orders") { echo("class='selected'"); $action="orders"; }} else { echo("class='selected'"); $action="orders"; }?>>Orders</li></a>
 		<a href="panel.php?action=statistic"><li <?php if(isset($_GET['action'])) { if($_GET['action'] == "statistic") { echo("class='selected'"); $action="statistic"; }} ?>>Statistic</li></a>
 		<a href="panel.php?action=products"><li <?php if(isset($_GET['action'])) { if(($_GET['action'] == "products") || ($_GET['action'] == "edit") || ($_GET['action'] == "delete")) { echo("class='selected'"); $action="products"; }} ?>>Products</li></a>
 		<a href="panel.php?action=exit"><li><img src="img/exit.png" style="
@@ -89,10 +109,63 @@ $id = -1;
 			
 			if($action == "orders")
 			{
-				echo("<div id='alert_box'>");
+				
+				/* ALERT BOX */
+				echo("<div id='alert_box' onclick='staymove()'>");
 				echo("You entered as <b>".$email."</b>, and your IP = <b>".$_SERVER["REMOTE_ADDR"]."</b><br/><br/>");
 				echo("Your last login was <b>".$myrow["last_login"]."</b> from IP = <b>".$myrow["last_ip"]."</b><br/><br/>");
 				echo("</div>");
+				/* ALERT BOX */
+				
+				echo("<a href='panel.php?action=order_add'><div id='add_button'><table><tr><td><img src='img/add.png' style='margin-right:10px;'/></td><td>Add order</td></tr></table></div></a>");
+						
+				
+				echo("
+				<table class='features-table'>
+				<thead>
+					<tr>
+						<td style='width:10%;'>ID</td>
+						<td class='grey' style='width:60%;'>Describing</td>
+						<td class='grey' style='width:10%;'>Prodict ID</td>
+						<td class='grey' style='width:10%;'>How many sold</td>
+						<td class='green' style='width:10%;'>Completed?</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>ID</td>
+						<td class='grey'>Describing</td>
+						<td class='grey'>Prodict ID</td>
+						<td class='grey'>How many sold</td>
+						<td class='green'>Completed?</td>
+					</tr>
+					<tr>
+						<td>ID</td>
+						<td class='grey'>Describing</td>
+						<td class='grey'>Prodict ID</td>
+						<td class='grey'>How many sold</td>
+						<td class='green'>Completed?</td>
+					</tr>
+					<tr>
+						<td>ID</td>
+						<td class='grey'>Describing</td>
+						<td class='grey'>Prodict ID</td>
+						<td class='grey'>How many sold</td>
+						<td class='green'>Completed?</td>
+					</tr>
+					<tr>
+						<td>ID</td>
+						<td class='grey'>Describing</td>
+						<td class='grey'>Prodict ID</td>
+						<td class='grey'>How many sold</td>
+						<td class='green'>Completed?</td>
+					</tr>
+				</tbody>
+				</table>
+				");
+				
+				
+				
 			}
 			
 			/* ACTION = ORDERS */
@@ -109,6 +182,8 @@ $id = -1;
 		
 			if($action == "products")
 			{
+				echo("<a href='panel.php?action=product_add'><div id='add_button'><table><tr><td><img src='img/add.png' style='margin-right:10px;'/></td><td>Add product</td></tr></table></div></a>");
+			
 				$result = mysql_query("SELECT * FROM products",$dbcon);
 				
 				echo("
